@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+
+<fx:root type="ro.codecamp.taskdashboard.ui.Dashboard"
+         fx:id="rootPane"
+         prefHeight="710.0" prefWidth="900.0"
+         xmlns:fx="http://javafx.com/fxml">
+    <children>
+        <Button fx:id="closeButton" styleClass="closeButton" prefHeight="30.0" prefWidth="30.0"
+                AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0"/>
+        <Button fx:id="refreshButton" styleClass="refreshButton" prefHeight="20.0" prefWidth="20.0" maxWidth="20.0"
+                maxHeight="20.0"
+                AnchorPane.rightAnchor="45.0" AnchorPane.topAnchor="10.0"/>
+        <StackPane fx:id="stackPane" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0"
+                   AnchorPane.rightAnchor="5.0"
+                   AnchorPane.topAnchor="50.0">
+            <children>
+                <ScrollPane styleClass="scrollPane">
+                    <content>
+                        <TilePane fx:id="itemsPane"
+                                  hgap="15.0" vgap="15.0">
+                            <padding>
+                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                            </padding>
+                        </TilePane>
+                    </content>
+                </ScrollPane>
+            </children>
+        </StackPane>
+        <Text fx:id="title" styleClass="h1" layoutX="14.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0"
+              text="Task Dashboard">
+            <effect>
+                <Glow/>
+            </effect>
+        </Text>
+    </children>
+</fx:root>

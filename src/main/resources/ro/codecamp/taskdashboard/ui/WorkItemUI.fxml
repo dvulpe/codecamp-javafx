@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import ro.codecamp.taskdashboard.ui.WorkItemModel?>
+<?import ro.codecamp.taskdashboard.util.UIBindings?>
+
+<fx:root type="ro.codecamp.taskdashboard.ui.WorkItemUI"
+         fx:id="root"
+         maxHeight="200" maxWidth="200" minHeight="200" minWidth="200" prefHeight="200.0" prefWidth="200.0"
+         styleClass="workItem"
+         xmlns:fx="http://javafx.com/fxml">
+    <children>
+        <StackPane fx:id="viewStack" styleClass="workItemContainer">
+            <children>
+                <VBox AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0"
+                      AnchorPane.topAnchor="5.0" AnchorPane.bottomAnchor="5.0" spacing="5.0" maxWidth="190">
+                    <children>
+                        <Label fx:id="title" styleClass="workItemTitle" text=""/>
+                        <Label fx:id="workItemInfo" alignment="TOP_LEFT" layoutX="5.0" prefHeight="100.0"
+                               text="Info" wrapText="true" styleClass="workItemDescription"/>
+                        <Label fx:id="asignee" layoutX="5.0" text="Assigned To"/>
+                        <Label fx:id="dueDate" text="Due Date"/>
+                    </children>
+                </VBox>
+            </children>
+        </StackPane>
+        <Label fx:id="issueTypeIcon" maxHeight="25.0" maxWidth="25.0" minHeight="25.0" minWidth="25.0" prefHeight="25.0"
+               prefWidth="25.0"
+               AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0"/>
+    </children>
+    <fx:define>
+        <WorkItemModel fx:id="workItemModel"/>
+        <UIBindings model="${workItemModel}" view="${root}"/>
+    </fx:define>
+</fx:root>
