@@ -8,18 +8,18 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import ro.codecamp.taskdashboard.service.JavaFXWorkItemService;
+import ro.codecamp.taskdashboard.service.AsyncWorkItemService;
 import ro.codecamp.taskdashboard.ui.Dashboard;
 import ro.codecamp.taskdashboard.ui.WorkItemModel;
 
 import java.util.List;
 
 public class DashboardPresenter {
-    private final JavaFXWorkItemService workItemService;
+    private final AsyncWorkItemService workItemService;
     private final Stage stage;
     private final ObservableList<WorkItemModel> workItems = FXCollections.observableArrayList();
 
-    public DashboardPresenter(JavaFXWorkItemService workItemService, Stage stage) {
+    public DashboardPresenter(AsyncWorkItemService workItemService, Stage stage) {
         this.workItemService = workItemService;
         this.stage = stage;
     }

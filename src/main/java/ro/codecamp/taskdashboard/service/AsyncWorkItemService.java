@@ -11,11 +11,11 @@ import ro.codecamp.taskdashboard.util.ConversionService;
 
 import java.util.List;
 
-public class JavaFXWorkItemService extends Service<List<WorkItemModel>> {
+public class AsyncWorkItemService extends Service<List<WorkItemModel>> {
     private final ConversionService conversionService;
     private final WorkItemService workItemService;
 
-    public JavaFXWorkItemService(ConversionService conversionService, WorkItemService workItemService) {
+    public AsyncWorkItemService(ConversionService conversionService, WorkItemService workItemService) {
         this.conversionService = conversionService;
         this.workItemService = workItemService;
     }

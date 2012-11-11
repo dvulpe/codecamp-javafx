@@ -23,7 +23,12 @@
                         <Label fx:id="workItemInfo" alignment="TOP_LEFT" layoutX="5.0" prefHeight="100.0"
                                text="Info" wrapText="true" styleClass="workItemDescription"/>
                         <Label fx:id="asignee" layoutX="5.0" text="Assigned To"/>
-                        <Label fx:id="dueDate" text="Due Date"/>
+                        <HBox spacing="5">
+                            <children>
+                                <Label text="Due Date"/>
+                                <Label fx:id="dueDate" text="Due Date"/>
+                            </children>
+                        </HBox>
                     </children>
                 </VBox>
             </children>

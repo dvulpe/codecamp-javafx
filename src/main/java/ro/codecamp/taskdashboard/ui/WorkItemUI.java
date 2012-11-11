@@ -24,7 +24,7 @@ public class WorkItemUI extends AnchorPane implements Initializable {
         try {
             loader.load();
         } catch (IOException e) {
-            throw new RuntimeException("Unable to instantiate model", e);
+            throw new RuntimeException("Unable to instantiate WorkItem ui model", e);
         }
     }
 

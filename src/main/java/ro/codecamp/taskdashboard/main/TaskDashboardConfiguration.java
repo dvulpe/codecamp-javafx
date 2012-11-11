@@ -4,7 +4,7 @@ import com.google.common.base.Function;
 import com.google.common.collect.ImmutableList;
 import ro.codecamp.taskdashboard.connector.WorkItemService;
 import ro.codecamp.taskdashboard.connector.stub.StubConnectorConfiguration;
-import ro.codecamp.taskdashboard.service.JavaFXWorkItemService;
+import ro.codecamp.taskdashboard.service.AsyncWorkItemService;
 import ro.codecamp.taskdashboard.service.WorkItemToWorkItemModelConverter;
 import ro.codecamp.taskdashboard.util.ConversionService;
 
@@ -24,8 +24,8 @@ public class TaskDashboardConfiguration {
 //        return new RedmineConnectorConfiguration().buildWorkItemService(properties);
 //    }
 
-    public JavaFXWorkItemService javaFXworkItemService() {
-        return new JavaFXWorkItemService(conversionService(), workItemService());
+    public AsyncWorkItemService javaFXworkItemService() {
+        return new AsyncWorkItemService(conversionService(), workItemService());
     }
 
     private ConversionService conversionService() {

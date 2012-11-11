@@ -50,7 +50,7 @@ public class Dashboard extends AnchorPane implements Initializable {
         try {
             loader.load();
         } catch (IOException e) {
-            throw new RuntimeException("Unable to instantiate Dashboard model", e);
+            throw new RuntimeException("Unable to instantiate Dashboard UI element", e);
         }
     }
 
@@ -81,15 +81,15 @@ public class Dashboard extends AnchorPane implements Initializable {
 
             @Override
             public void onAdded(WorkItemModel added) {
-                InstantiatorService service = new InstantiatorService(added);
-                service.valueProperty().addListener(new ChangeListener<WorkItemUI>() {
+                AsyncWorkItemUIFactory asyncFactory = new AsyncWorkItemUIFactory(added);
+                asyncFactory.valueProperty().addListener(new ChangeListener<WorkItemUI>() {
                     @Override
                     public void changed(ObservableValue<? extends WorkItemUI> observableValue,
-                                        WorkItemUI workItemUI, WorkItemUI workItemUI1) {
-                        itemsPane.getChildren().add(workItemUI1);
+                                        WorkItemUI oldItem, WorkItemUI newItem) {
+                        itemsPane.getChildren().add(newItem);
                     }
                 });
-                service.start();
+                asyncFactory.start();
             }
         });
     }
@@ -190,10 +190,10 @@ public class Dashboard extends AnchorPane implements Initializable {
         }
     }
 
-    private class InstantiatorService extends Service<WorkItemUI> {
+    private class AsyncWorkItemUIFactory extends Service<WorkItemUI> {
         private WorkItemModel added;
 
-        public InstantiatorService(WorkItemModel added) {
+        public AsyncWorkItemUIFactory(WorkItemModel added) {
             this.added = added;
         }
 
